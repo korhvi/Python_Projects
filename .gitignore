@@ -130,3 +130,5 @@ dist
 .pnp.*
 *.key
 *.txt
+
+config.py
