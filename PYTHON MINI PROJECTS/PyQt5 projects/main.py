@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QLabel, QWidget, QVBoxLayout, QHBoxLayout,          QGridLayout, QPushButton)
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QLabel, QWidget, QVBoxLayout, QHBoxLayout,          QGridLayout, QPushButton, QCheckBox)
 from PyQt5.QtGui import QFont, QIcon, QPixmap
 from PyQt5.QtCore import Qt
 
@@ -8,11 +8,26 @@ class MainWindow(QMainWindow):
     super().__init__()
     self.setWindowTitle("MY cool first GUI")
     self.setGeometry(700, 300, 500, 500)
-    self.setWindowIcon(QIcon("PYTHON MINI PROJECTS/PyQt5 projects/dog.jpg"))
-    self.button = QPushButton("Click me!", self)
-    self.label = QLabel("Hello", self)
+    #self.setWindowIcon(QIcon("PYTHON MINI PROJECTS/PyQt5 projects/dog.jpg"))
+    #self.button = QPushButton("Click me!", self)
+    #self.label = QLabel("Hello", self)
+    self.checbox = QCheckBox("Do you like food?", self)
     self.initUI()
-    '''
+
+  def initUI(self):
+    self.checbox.setGeometry(10, 0, 500, 100)
+    self.checbox.setStyleSheet("font-size: 30px;"
+                               "font-family: Arial;")
+    self.checbox.setChecked(False)
+    self.checbox.stateChanged.connect(self.checkbox_changed)
+
+  def checkbox_changed(self, state):
+    if state == Qt.Checked:
+      print("You like food")
+    else:
+      print("You don't like food")
+
+'''
     label = QLabel( self)
     label.setFont(QFont("Arial", 40))
     label.setGeometry(0,0, 500, 100)
@@ -33,7 +48,7 @@ class MainWindow(QMainWindow):
                       (self.height() - label.height()) // 2, 
                       label.width(), 
                       label.height())'''
-  
+'''
   def initUI(self):
     
     self.button.setGeometry(150, 200, 200, 100)
@@ -41,14 +56,14 @@ class MainWindow(QMainWindow):
     self.button.clicked.connect(self.on_click)
 
     self.label.setGeometry(150, 300, 200, 100)
-    self.label.setStyleSheet("font-size: 50px;")
-
+    self.label.setStyleSheet("font-size: 50px;")'''
+'''
   def on_click(self):
-    self.label.setText("Goodbye")
-    '''
+    self.label.setText("Goodbye")'''
+'''
     self.button.setText("Clicked")
     self.button.setDisabled(True)'''
-    '''
+'''
     central_widget = QWidget()
     self.setCentralWidget(central_widget)
 
