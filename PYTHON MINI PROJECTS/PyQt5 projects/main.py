@@ -1,14 +1,16 @@
 import sys
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QLabel, QWidget, QVBoxLayout, QHBoxLayout,          QGridLayout)
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QLabel, QWidget, QVBoxLayout, QHBoxLayout,          QGridLayout, QPushButton)
 from PyQt5.QtGui import QFont, QIcon, QPixmap
 from PyQt5.QtCore import Qt
 
 class MainWindow(QMainWindow):
   def __init__(self):
     super().__init__()
-    self.setWindowTitle("MY cool first HUI")
+    self.setWindowTitle("MY cool first GUI")
     self.setGeometry(700, 300, 500, 500)
     self.setWindowIcon(QIcon("PYTHON MINI PROJECTS/PyQt5 projects/dog.jpg"))
+    self.button = QPushButton("Click me!", self)
+    self.label = QLabel("Hello", self)
     self.initUI()
     '''
     label = QLabel( self)
@@ -31,8 +33,22 @@ class MainWindow(QMainWindow):
                       (self.height() - label.height()) // 2, 
                       label.width(), 
                       label.height())'''
-
+  
   def initUI(self):
+    
+    self.button.setGeometry(150, 200, 200, 100)
+    self.button.setStyleSheet("font-size: 30px;")
+    self.button.clicked.connect(self.on_click)
+
+    self.label.setGeometry(150, 300, 200, 100)
+    self.label.setStyleSheet("font-size: 50px;")
+
+  def on_click(self):
+    self.label.setText("Goodbye")
+    '''
+    self.button.setText("Clicked")
+    self.button.setDisabled(True)'''
+    '''
     central_widget = QWidget()
     self.setCentralWidget(central_widget)
 
@@ -56,7 +72,9 @@ class MainWindow(QMainWindow):
     vbox.addWidget(label4)
     vbox.addWidget(label5)
 
-    central_widget.setLayout(vbox)
+    central_widget.setLayout(vbox) '''
+
+
 
 
 
